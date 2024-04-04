@@ -205,8 +205,10 @@ impl Display for ConnectionId {
 #[derive(Serialize, Deserialize)]
 /// [`NetworkPacket`]s are untyped packets to be sent over the wire
 pub struct NetworkPacket {
-    kind: String,
-    data: Vec<u8>,
+    /// Identifier for the type of packet
+    pub kind: String,
+    /// Data of the packet to be deserialized with bincode to the struct registered to eventwork
+    pub data: Vec<u8>,
 }
 
 impl Debug for NetworkPacket {
